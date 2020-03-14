@@ -20,29 +20,31 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="snydkbd">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SXY">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="12title: 简单dp整理categories: 动态规划（dp）  1.最长公共子序列（1）【POJ 1458 Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。1dp[i][j]表示在a[i]和b[j]之前共有的元素的个数  状态转移方程：for循环两重遍历后： 12if(a[i-1] &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划">
+<meta property="og:url" content="http://yoursite.com/2020/03/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
 <meta property="og:site_name" content="SXY">
-<meta property="og:description" content="snydkbd">
+<meta property="og:description" content="12title: 简单dp整理categories: 动态规划（dp）  1.最长公共子序列（1）【POJ 1458 Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。1dp[i][j]表示在a[i]和b[j]之前共有的元素的个数  状态转移方程：for循环两重遍历后： 12if(a[i-1] &#x3D;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-13T14:59:36.219Z">
+<meta property="article:modified_time" content="2020-03-14T03:25:34.757Z">
 <meta property="article:author" content="SXY">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/03/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome: false,
+    isPost: true
   };
 </script>
 
-  <title>SXY</title>
+  <title>动态规划 | SXY</title>
   
 
 
@@ -144,10 +146,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -161,8 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-title-link" itemprop="url">动态规划</a>
+          动态规划
         </h1>
 
         <div class="post-meta">
@@ -193,7 +194,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: 简单dp整理</span><br><span class="line">categories: 动态规划（dp）</span><br></pre></td></tr></table></figure>
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: 简单dp整理</span><br><span class="line">categories: 动态规划（dp）</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-最长公共子序列"><a href="#1-最长公共子序列" class="headerlink" title="1.最长公共子序列"></a>1.最长公共子序列</h2><h4 id="（1）【POJ-1458-Common-Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc-与-abfcab-都有-按从左往右的顺序-abcb。"><a href="#（1）【POJ-1458-Common-Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc-与-abfcab-都有-按从左往右的顺序-abcb。" class="headerlink" title="（1）【POJ 1458 Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。"></a>（1）【<a href="https://vjudge.net/problem/POJ-1458" target="_blank" rel="noopener"><strong>POJ 1458</strong></a> Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j]表示在a[i]和b[j]之前共有的元素的个数</span><br></pre></td></tr></table></figure>
 
@@ -233,102 +234,33 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e4</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn], dp[maxn][maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]), dp[i][i] = a[i]*n; <span class="comment">//初始化，区间长度是1的时候，就是最后一个拿的直接乘n</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> len = <span class="number">1</span>; len &lt; n; len++) <span class="comment">//枚举区间长度</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) <span class="comment">//枚举起点</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j = i + len; <span class="comment">//枚举终点</span></span><br><span class="line">            dp[i][j] = <span class="built_in">max</span>(dp[i+<span class="number">1</span>][j]+a[i]*(n-len), dp[i][j<span class="number">-1</span>]+a[j]*(n-len)); <span class="comment">//每个区间len都由最优区间len-1 +左面或者右面的</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; dp[<span class="number">1</span>][n] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/29/%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3API/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SXY">
-      <meta itemprop="description" content="snydkbd">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SXY">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/29/%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3API/" class="post-title-link" itemprop="url">百度语音API</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-29 12:49:12" itemprop="dateCreated datePublished" datetime="2020-01-29T12:49:12+08:00">2020-01-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-24 13:07:45" itemprop="dateModified" datetime="2020-02-24T13:07:45+08:00">2020-02-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/API/" itemprop="url" rel="index">
-                    <span itemprop="name">API</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> wave</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> demjson</span><br><span class="line"><span class="keyword">from</span> setting <span class="keyword">import</span> CLIENT_ID, CLIENT_SECRET, CUID  //在setting.py中分别列出申请的API的ID和密钥</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_token</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'http://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&amp;client_id=%s&amp;client_secret=%s'</span>%(CLIENT_ID,CLIENT_SECRET)</span><br><span class="line">    r = requests.get(url)</span><br><span class="line">    item = r.text</span><br><span class="line">    token = demjson.decode(item)[<span class="string">'access_token'</span>]</span><br><span class="line">    <span class="keyword">return</span> token</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">recognize</span><span class="params">(wav_file)</span>:</span></span><br><span class="line">    f = wave.open(wav_file)</span><br><span class="line">    params = f.getparams()</span><br><span class="line">    nchannels, sampwidth, framerate, nframes = params[:<span class="number">4</span>]</span><br><span class="line">    <span class="keyword">if</span> sampwidth != <span class="number">1</span> <span class="keyword">or</span> framerate <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">8000</span>, <span class="number">16000</span>):        </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    str_data = f.readframes(nframes)</span><br><span class="line">    base_data = base64.b64encode(str_data).decode(<span class="string">'utf-8'</span>)      </span><br><span class="line">    data = &#123;<span class="string">"format"</span>: <span class="string">"wav"</span>,</span><br><span class="line">            <span class="string">"rate"</span>: framerate,</span><br><span class="line">            <span class="string">"channel"</span>: nchannels,</span><br><span class="line">            <span class="string">"token"</span>: get_token(),</span><br><span class="line">            <span class="string">"cuid"</span>: CUID,</span><br><span class="line">            <span class="string">'speech'</span>: base_data,</span><br><span class="line">            <span class="string">'len'</span>: len(str_data)&#125;</span><br><span class="line">    url = <span class="string">'http://vop.baidu.com/server_api'</span></span><br><span class="line">    headers = &#123;<span class="string">'Content-type'</span>: <span class="string">'application/json'</span>,</span><br><span class="line">               <span class="string">'Content-length'</span>: str(len(str(data)))&#125;</span><br><span class="line">    resoonse = requests.post(url,headers=headers,json=data)</span><br><span class="line">    <span class="keyword">return</span> resoonse.text</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    r = recognize(<span class="string">'test.wav'</span>)  //需要识别的音频文件名</span><br><span class="line">    print(r)</span><br></pre></td></tr></table></figure>
-
-<p>功能是识别语音</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/29/%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3API/" rel="prev" title="百度语音API">
+      <i class="fa fa-chevron-left"></i> 百度语音API
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -379,6 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-最长公共子序列"><span class="nav-number">1.</span> <span class="nav-text">1.最长公共子序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）【POJ-1458-Common-Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc-与-abfcab-都有-按从左往右的顺序-abcb。"><span class="nav-number">1.0.1.</span> <span class="nav-text">（1）【POJ 1458 Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-最长单调递增序列"><span class="nav-number">2.</span> <span class="nav-text">2.最长单调递增序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-【POJ-2533-Longest-Ordered-Subssequence】"><span class="nav-number">2.0.1.</span> <span class="nav-text">(1)【POJ 2533 Longest Ordered Subssequence】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-【HDU-1087-Super-Jumping】"><span class="nav-number">2.0.2.</span> <span class="nav-text">(2)【HDU 1087 Super Jumping】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-区间dp"><span class="nav-number">3.</span> <span class="nav-text">3.区间dp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-【POJ-3186-Treats-for-the-Cows】"><span class="nav-number">3.0.1.</span> <span class="nav-text">(1)【POJ 3186 Treats for the Cows】</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
