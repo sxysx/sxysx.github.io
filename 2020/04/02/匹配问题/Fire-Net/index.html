@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Fire Net 【HDU 1045】学艺不精，是个菜鸡。。。调试了一个小时发现一个逗号语句用错了 重新来学学一遍逗号表达式的用法：  表达式1，表达式2，表达式3，…… ，表达式n 逗号表达式的要领： (1) 逗号表达式的运算过程为：从左往右逐个计算表达式。 (2) 逗号表达式作为一个整体，它的值为最后一个表达式（也即表达式n）的值。 (3) 逗号运算符的优先级别在所有运算符中最低。  我一开始">
+  <meta name="description" content="Fire Net 【HDU 1045】">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fire Net">
 <meta property="og:url" content="http://yoursite.com/2020/04/02/%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/Fire-Net/index.html">
 <meta property="og:site_name" content="阿帅今天又双叒叕自闭了">
-<meta property="og:description" content="Fire Net 【HDU 1045】学艺不精，是个菜鸡。。。调试了一个小时发现一个逗号语句用错了 重新来学学一遍逗号表达式的用法：  表达式1，表达式2，表达式3，…… ，表达式n 逗号表达式的要领： (1) 逗号表达式的运算过程为：从左往右逐个计算表达式。 (2) 逗号表达式作为一个整体，它的值为最后一个表达式（也即表达式n）的值。 (3) 逗号运算符的优先级别在所有运算符中最低。  我一开始">
+<meta property="og:description" content="Fire Net 【HDU 1045】">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://a1.qpic.cn/psc?/V12SotN11LF5Eb/NZ9C4PTRAOGVNvAxFZDwtyHcIbqUDg52idTa73t00HaSbWEpRIt2xu410ZrdkWDM9dplS6..9gnsZVn03CdUxA!!/c&ek=1&kp=1&pt=0&bo=gAc4BAAAAAADJ7k!&tl=1&vuin=1517435708&tm=1585836000&sce=60-2-2&rf=0-0">
 <meta property="article:published_time" content="2020-04-02T14:32:15.555Z">
-<meta property="article:modified_time" content="2020-04-02T14:33:36.152Z">
+<meta property="article:modified_time" content="2020-04-02T14:56:38.273Z">
 <meta property="article:author" content="SXY">
 <meta property="article:tag" content="efficiency">
 <meta name="twitter:card" content="summary">
@@ -113,19 +113,24 @@
 <nav class="site-nav">
   
   <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
+        <li class="menu-item menu-item-主页">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>主页</a>
 
   </li>
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-关于">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-目录">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>目录</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
   </ul>
@@ -175,7 +180,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-02 22:32:15 / Modified: 22:33:36" itemprop="dateCreated datePublished" datetime="2020-04-02T22:32:15+08:00">2020-04-02</time>
+              <time title="Created: 2020-04-02 22:32:15 / Modified: 22:56:38" itemprop="dateCreated datePublished" datetime="2020-04-02T22:32:15+08:00">2020-04-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -207,7 +212,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Fire-Net-【HDU-1045】"><a href="#Fire-Net-【HDU-1045】" class="headerlink" title="Fire Net 【HDU 1045】"></a>Fire Net 【<a href="https://vjudge.net/problem/HDU-1045" target="_blank" rel="noopener">HDU 1045</a>】</h3><p>学艺不精，是个菜鸡。。。调试了一个小时发现一个逗号语句用错了</p>
+        <h3 id="Fire-Net-【HDU-1045】"><a href="#Fire-Net-【HDU-1045】" class="headerlink" title="Fire Net 【HDU 1045】"></a>Fire Net 【<a href="https://vjudge.net/problem/HDU-1045" target="_blank" rel="noopener">HDU 1045</a>】</h3><a id="more"></a>
+
+<p>学艺不精，是个菜鸡。。。调试了一个小时发现一个逗号语句用错了</p>
 <p>重新来学学一遍逗号表达式的用法：</p>
 <blockquote>
 <p>表达式1，表达式2，表达式3，…… ，表达式n</p>
@@ -321,15 +328,13 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+          <a href="/archives">
           <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-          
         <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
