@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="匹配问题概述匹配问题有很多，像二分图匹配、字符串匹配等 一、匈牙利算法：https:&#x2F;&#x2F;blog.csdn.net&#x2F;sunny_hun&#x2F;article&#x2F;details&#x2F;80627351二、KM算法：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wenruo&#x2F;p&#x2F;5264235.html12345678910111213141516171819202122232425262728293031323">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction">
+<meta property="og:url" content="http://yoursite.com/2020/04/02/%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/Introduction/index.html">
+<meta property="og:site_name" content="阿帅今天又双叒叕自闭了">
+<meta property="og:description" content="匹配问题概述匹配问题有很多，像二分图匹配、字符串匹配等 一、匈牙利算法：https:&#x2F;&#x2F;blog.csdn.net&#x2F;sunny_hun&#x2F;article&#x2F;details&#x2F;80627351二、KM算法：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wenruo&#x2F;p&#x2F;5264235.html12345678910111213141516171819202122232425262728293031323">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-02T10:23:19.917Z">
+<meta property="article:modified_time" content="2020-04-02T10:24:56.930Z">
+<meta property="article:author" content="SXY">
+<meta property="article:tag" content="efficiency">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/02/%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/Introduction/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Introduction | 阿帅今天又双叒叕自闭了</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿帅今天又双叒叕自闭了</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">阿帅每天都自闭</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/Introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.gif">
+      <meta itemprop="name" content="SXY">
+      <meta itemprop="description" content="帅某人每天都很自闭">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿帅今天又双叒叕自闭了">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Introduction
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-04-02 18:23:19 / Modified: 18:24:56" itemprop="dateCreated datePublished" datetime="2020-04-02T18:23:19+08:00">2020-04-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Matching-Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Matching Algorithm</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="匹配问题概述"><a href="#匹配问题概述" class="headerlink" title="匹配问题概述"></a>匹配问题概述</h1><p>匹配问题有很多，像二分图匹配、字符串匹配等</p>
+<h3 id="一、匈牙利算法：https-blog-csdn-net-sunny-hun-article-details-80627351"><a href="#一、匈牙利算法：https-blog-csdn-net-sunny-hun-article-details-80627351" class="headerlink" title="一、匈牙利算法：https://blog.csdn.net/sunny_hun/article/details/80627351"></a>一、匈牙利算法：<a href="https://blog.csdn.net/sunny_hun/article/details/80627351" target="_blank" rel="noopener">https://blog.csdn.net/sunny_hun/article/details/80627351</a></h3><h3 id="二、KM算法：https-www-cnblogs-com-wenruo-p-5264235-html"><a href="#二、KM算法：https-www-cnblogs-com-wenruo-p-5264235-html" class="headerlink" title="二、KM算法：https://www.cnblogs.com/wenruo/p/5264235.html"></a>二、KM算法：<a href="https://www.cnblogs.com/wenruo/p/5264235.html" target="_blank" rel="noopener">https://www.cnblogs.com/wenruo/p/5264235.html</a></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">305</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> love[MAXN][MAXN];   <span class="comment">// 记录每个妹子和每个男生的好感度</span></span><br><span class="line"><span class="keyword">int</span> ex_girl[MAXN];      <span class="comment">// 每个妹子的期望值</span></span><br><span class="line"><span class="keyword">int</span> ex_boy[MAXN];       <span class="comment">// 每个男生的期望值</span></span><br><span class="line"><span class="keyword">bool</span> vis_girl[MAXN];    <span class="comment">// 记录每一轮匹配匹配过的女生</span></span><br><span class="line"><span class="keyword">bool</span> vis_boy[MAXN];     <span class="comment">// 记录每一轮匹配匹配过的男生</span></span><br><span class="line"><span class="keyword">int</span> match[MAXN];        <span class="comment">// 记录每个男生匹配到的妹子 如果没有则为-1</span></span><br><span class="line"><span class="keyword">int</span> slack[MAXN];        <span class="comment">// 记录每个汉子如果能被妹子倾心最少还需要多少期望值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> girl)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vis_girl[girl] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> boy = <span class="number">0</span>; boy &lt; N; ++boy) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (vis_boy[boy]) <span class="keyword">continue</span>; <span class="comment">// 每一轮匹配 每个男生只尝试一次</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> gap = ex_girl[girl] + ex_boy[boy] - love[girl][boy];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (gap == <span class="number">0</span>) &#123;  <span class="comment">// 如果符合要求</span></span><br><span class="line">            vis_boy[boy] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (match[boy] == <span class="number">-1</span> || dfs( match[boy] )) &#123;    <span class="comment">// 找到一个没有匹配的男生 或者该男生的妹子可以找到其他人</span></span><br><span class="line">                match[boy] = girl;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            slack[boy] = <span class="built_in">min</span>(slack[boy], gap);  <span class="comment">// slack 可以理解为该男生要得到女生的倾心 还需多少期望值 取最小值 备胎的样子【捂脸</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">KM</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(match, <span class="number">-1</span>, <span class="keyword">sizeof</span> match);    <span class="comment">// 初始每个男生都没有匹配的女生</span></span><br><span class="line">    <span class="built_in">memset</span>(ex_boy, <span class="number">0</span>, <span class="keyword">sizeof</span> ex_boy);   <span class="comment">// 初始每个男生的期望值为0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 每个女生的初始期望值是与她相连的男生最大的好感度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</span><br><span class="line">        ex_girl[i] = love[i][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; N; ++j) &#123;</span><br><span class="line">            ex_girl[i] = <span class="built_in">max</span>(ex_girl[i], love[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 尝试为每一个女生解决归宿问题</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">fill</span>(slack, slack + N, INF);    <span class="comment">// 因为要取最小值 初始化为无穷大</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// 为每个女生解决归宿问题的方法是 ：如果找不到就降低期望值，直到找到为止</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 记录每轮匹配中男生女生是否被尝试匹配过</span></span><br><span class="line">            <span class="built_in">memset</span>(vis_girl, <span class="literal">false</span>, <span class="keyword">sizeof</span> vis_girl);</span><br><span class="line">            <span class="built_in">memset</span>(vis_boy, <span class="literal">false</span>, <span class="keyword">sizeof</span> vis_boy);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (dfs(i)) <span class="keyword">break</span>;  <span class="comment">// 找到归宿 退出</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果不能找到 就降低期望值</span></span><br><span class="line">            <span class="comment">// 最小可降低的期望值</span></span><br><span class="line">            <span class="keyword">int</span> d = INF;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; ++j)</span><br><span class="line">                <span class="keyword">if</span> (!vis_boy[j]) d = <span class="built_in">min</span>(d, slack[j]);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; ++j) &#123;</span><br><span class="line">                <span class="comment">// 所有访问过的女生降低期望值</span></span><br><span class="line">                <span class="keyword">if</span> (vis_girl[j]) ex_girl[j] -= d;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 所有访问过的男生增加期望值</span></span><br><span class="line">                <span class="keyword">if</span> (vis_boy[j]) ex_boy[j] += d;</span><br><span class="line">                <span class="comment">// 没有访问过的boy 因为girl们的期望值降低，距离得到女生倾心又进了一步！</span></span><br><span class="line">                <span class="keyword">else</span> slack[j] -= d;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 匹配完成 求出所有配对的好感度的和</span></span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">        res += love[ match[i] ][i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N)) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; ++j)</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;love[i][j]);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, KM());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/30/%E4%BD%BF%E7%94%A8Latex%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AETexLive-+-VsCode/" rel="prev" title="使用Latex——配置TexLive + VsCode">
+      <i class="fa fa-chevron-left"></i> 使用Latex——配置TexLive + VsCode
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#匹配问题概述"><span class="nav-number">1.</span> <span class="nav-text">匹配问题概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、匈牙利算法：https-blog-csdn-net-sunny-hun-article-details-80627351"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、匈牙利算法：https:&#x2F;&#x2F;blog.csdn.net&#x2F;sunny_hun&#x2F;article&#x2F;details&#x2F;80627351</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、KM算法：https-www-cnblogs-com-wenruo-p-5264235-html"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、KM算法：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wenruo&#x2F;p&#x2F;5264235.html</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SXY"
+      src="/images/cat.gif">
+  <p class="site-author-name" itemprop="name">SXY</p>
+  <div class="site-description" itemprop="description">帅某人每天都很自闭</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sxysx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sxysx" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sxy641io@163.com" title="E-Mail → mailto:sxy641io@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SXY</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'fdccd63805bb6bcf0574',
+      clientSecret: '1951ae4a827938067713f16399574a4faa67d9d9',
+      repo        : 'sxysx.github.io',
+      owner       : 'sxysx',
+      admin       : ['sxysx'],
+      id          : '858eb531ee3e526d7e549936070ecce6',
+        language: 'zh-CN || en || es-ES || fr || ru || zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+
+</body>
+</html>
