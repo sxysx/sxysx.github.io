@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1.最长公共子序列（1）【POJ 1458 Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。1dp[i][j]表示在a[i]和b[j]之前共有的元素的个数  状态转移方程：for循环两重遍历后： 12if(a[i-1] &#x3D;&#x3D; b[j-1]) dp[i][j] &#x3D; dp[i-1][j-1] + 1">
+  <meta name="description" content="点击“阅读全文”👇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dynamic programming（dp）">
 <meta property="og:url" content="http://yoursite.com/2020/03/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
 <meta property="og:site_name" content="阿帅今天又双叒叕自闭了">
-<meta property="og:description" content="1.最长公共子序列（1）【POJ 1458 Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。1dp[i][j]表示在a[i]和b[j]之前共有的元素的个数  状态转移方程：for循环两重遍历后： 12if(a[i-1] &#x3D;&#x3D; b[j-1]) dp[i][j] &#x3D; dp[i-1][j-1] + 1">
+<meta property="og:description" content="点击“阅读全文”👇">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/714429/201511/714429-20151104154045461-1769975329.png">
 <meta property="article:published_time" content="2020-03-13T14:59:36.219Z">
-<meta property="article:modified_time" content="2020-03-28T05:26:47.609Z">
+<meta property="article:modified_time" content="2020-04-03T15:32:27.340Z">
 <meta property="article:author" content="SXY">
 <meta property="article:tag" content="efficiency">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-28 13:26:47" itemprop="dateModified" datetime="2020-03-28T13:26:47+08:00">2020-03-28</time>
+                <time title="修改时间：2020-04-03 23:32:27" itemprop="dateModified" datetime="2020-04-03T23:32:27+08:00">2020-04-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +220,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-最长公共子序列"><a href="#1-最长公共子序列" class="headerlink" title="1.最长公共子序列"></a>1.最长公共子序列</h2><h4 id="（1）【POJ-1458-Common-Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc-与-abfcab-都有-按从左往右的顺序-abcb。"><a href="#（1）【POJ-1458-Common-Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc-与-abfcab-都有-按从左往右的顺序-abcb。" class="headerlink" title="（1）【POJ 1458 Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。"></a>（1）【<a href="https://vjudge.net/problem/POJ-1458" target="_blank" rel="noopener"><strong>POJ 1458</strong></a> Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j]表示在a[i]和b[j]之前共有的元素的个数</span><br></pre></td></tr></table></figure>
+        <p>点击“阅读全文”👇<a id="more"></a></p>
+<h2 id="1-最长公共子序列"><a href="#1-最长公共子序列" class="headerlink" title="1.最长公共子序列"></a>1.最长公共子序列</h2><h4 id="（1）【POJ-1458-Common-Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc-与-abfcab-都有-按从左往右的顺序-abcb。"><a href="#（1）【POJ-1458-Common-Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc-与-abfcab-都有-按从左往右的顺序-abcb。" class="headerlink" title="（1）【POJ 1458 Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。"></a>（1）【<a href="https://vjudge.net/problem/POJ-1458" target="_blank" rel="noopener"><strong>POJ 1458</strong></a> Common Subsequence】求两个字符串从左往右含有最多公共元素的个数，如：abcfbc 与 abfcab 都有(按从左往右的顺序)abcb。</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j]表示在a[i]和b[j]之前共有的元素的个数</span><br></pre></td></tr></table></figure>
 
 <p>状态转移方程：for循环两重遍历后：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a[i<span class="number">-1</span>] == b[j<span class="number">-1</span>]) dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span> dp[i][j] = <span class="built_in">max</span>(dp[i<span class="number">-1</span>][j], dp[i][j<span class="number">-1</span>]);</span><br></pre></td></tr></table></figure>
