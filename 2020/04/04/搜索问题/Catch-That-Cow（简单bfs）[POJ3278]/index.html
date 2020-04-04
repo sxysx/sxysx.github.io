@@ -22,18 +22,18 @@
 
   <meta name="description" content="点击“阅读全文”👇">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Courses(二分图最大匹配)">
-<meta property="og:url" content="http://yoursite.com/2020/04/04/%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/Courses(%E6%B1%82%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E6%95%B0)/index.html">
+<meta property="og:title" content="Catch That Cow（简单bfs）[POJ3278]">
+<meta property="og:url" content="http://yoursite.com/2020/04/04/%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98/Catch-That-Cow%EF%BC%88%E7%AE%80%E5%8D%95bfs%EF%BC%89[POJ3278]/index.html">
 <meta property="og:site_name" content="阿帅今天又双叒叕自闭了">
 <meta property="og:description" content="点击“阅读全文”👇">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-04T03:10:12.767Z">
-<meta property="article:modified_time" content="2020-04-04T03:14:12.000Z">
+<meta property="article:published_time" content="2020-04-04T14:42:25.373Z">
+<meta property="article:modified_time" content="2020-04-04T14:42:25.822Z">
 <meta property="article:author" content="SXY">
 <meta property="article:tag" content="efficiency">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/04/04/%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/Courses(%E6%B1%82%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E6%95%B0)/">
+<link rel="canonical" href="http://yoursite.com/2020/04/04/%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98/Catch-That-Cow%EF%BC%88%E7%AE%80%E5%8D%95bfs%EF%BC%89[POJ3278]/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Courses(二分图最大匹配) | 阿帅今天又双叒叕自闭了</title>
+  <title>Catch That Cow（简单bfs）[POJ3278] | 阿帅今天又双叒叕自闭了</title>
   
 
 
@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/Courses(%E6%B1%82%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E6%95%B0)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98/Catch-That-Cow%EF%BC%88%E7%AE%80%E5%8D%95bfs%EF%BC%89[POJ3278]/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/cat.gif">
@@ -169,7 +169,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Courses(二分图最大匹配)
+          Catch That Cow（简单bfs）[POJ3278]
         </h1>
 
         <div class="post-meta">
@@ -178,9 +178,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-04 11:10:12 / 修改时间：11:14:12" itemprop="dateCreated datePublished" datetime="2020-04-04T11:10:12+08:00">2020-04-04</time>
+              <time title="创建时间：2020-04-04 22:42:25" itemprop="dateCreated datePublished" datetime="2020-04-04T22:42:25+08:00">2020-04-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -188,8 +187,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/" itemprop="url" rel="index">
-                    <span itemprop="name">匹配问题</span>
+                  <a href="/categories/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index">
+                    <span itemprop="name">搜索</span>
                   </a>
                 </span>
             </span>
@@ -213,16 +212,25 @@
 
       
         <p>点击“阅读全文”👇<a id="more"></a></p>
-<h4 id="Courses【HDU-1083】"><a href="#Courses【HDU-1083】" class="headerlink" title="Courses【HDU 1083】"></a>Courses【HDU 1083】</h4><p>给定学生数和课程数，以及每门课程和学生的关系，验证最大匹配数是否和课程数相等。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MEM(a, x) memset(a, x, sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">300</span>;</span><br><span class="line"><span class="keyword">bool</span> link[maxn][maxn];</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"><span class="keyword">int</span> ma[maxn];</span><br><span class="line"><span class="keyword">int</span> n, p;  <span class="comment">//学生人数、课程数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[i] &amp;&amp; link[x][i])</span><br><span class="line">        &#123;</span><br><span class="line">            vis[i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(ma[i]==<span class="number">-1</span> || dfs(ma[i]))</span><br><span class="line">            &#123;</span><br><span class="line">                ma[i] = x;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MEM(ma, <span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= p; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        MEM(vis, <span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">if</span>(dfs(i)) sum++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">//求最大匹配数是否为课程数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//freopen("input.txt", "r", stdin);</span></span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--) &#123;</span><br><span class="line">        MEM(link, <span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;p, &amp;n);</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= p; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a); <span class="comment">//第i门课有a个学生</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; a; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b);</span><br><span class="line">                link[i][b] = <span class="literal">true</span>; <span class="comment">//给课程匹配学生</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, solve()==p?<span class="string">"YES"</span>:<span class="string">"NO"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有一点我不是很懂，我在代码里面加了一句：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(p!=n) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后就会wa。</p>
-<p>但是我觉得这道题要是想成立学生数和课程数一定得先相等啊。。。</p>
-<p>A few moments later， 我懂了，原来是允许有学生一门课都不选的，，，这学生真，，，</p>
-
+<h4 id="Question"><a href="#Question" class="headerlink" title="Question:"></a><a href="https://vjudge.net/problem/HDU-2717" target="_blank" rel="noopener">Question</a>:</h4><blockquote>
+<p>  Farmer John has been informed of the location of a fugitive cow and wants to catch her immediately. He starts at a point N (0 ≤ N ≤ 100,000) on a number line and the cow is at a point K (0 ≤ K ≤ 100,000) on the same number line. Farmer John has two modes of transportation: walking and teleporting.</p>
+<p>  * Walking: FJ can move from any point X to the points X - 1 or X + 1 in a single minute<br>  * Teleporting: FJ can move from any point X to the point 2 × X in a single minute.</p>
+<p>  If the cow, unaware of its pursuit, does not move at all, how long does it take for Farmer John to retrieve it? </p>
+<p>  简单翻译：在一条一维坐标轴上，给出起点和终点，该点一次只能走+1、-1、*2步，每走一次消耗一个单位时间，问一共最少消耗多少单位时间？</p>
+</blockquote>
+<h4 id="Input"><a href="#Input" class="headerlink" title="Input:"></a>Input:</h4><blockquote>
+<p>   Line 1: Two space-separated integers: N and K </p>
+</blockquote>
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output:"></a>Output:</h4><blockquote>
+<p> Line 1: The least amount of time, in minutes, it takes for Farmer John to catch the fugitive cow. </p>
+</blockquote>
+<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h4><blockquote>
+<p>5 17</p>
+</blockquote>
+<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h4><blockquote>
+<p>4</p>
+</blockquote>
+<h4 id="AC-codes"><a href="#AC-codes" class="headerlink" title="AC codes:"></a>AC codes:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100005</span>;</span><br><span class="line"><span class="keyword">int</span> start, terminal;</span><br><span class="line"><span class="keyword">int</span> marked[maxn]=&#123;<span class="number">0</span>&#125;;   <span class="comment">//记录该点有没有被走过</span></span><br><span class="line"><span class="keyword">int</span> <span class="built_in">step</span>[maxn]=&#123;<span class="number">0</span>&#125;;  <span class="comment">//记录走到该点消耗的步数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//struct Node  //用结构体这道题超内存了，</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//    int pos;</span></span><br><span class="line"><span class="comment">//    int step;</span></span><br><span class="line"><span class="comment">//&#125;now,anext,head;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> now,next;</span><br><span class="line">    marked[start]=<span class="number">1</span>;</span><br><span class="line">    q.push(start);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        now=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">if</span>(now==terminal)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="built_in">step</span>[now]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">3</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">switch</span>(i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>: next=now+<span class="number">1</span>;<span class="keyword">break</span>;<span class="comment">//switch()里面不能直接步数加一，之前存在队列里的已标记过的数组会被无缘无故</span></span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>: next=now<span class="number">-1</span>;<span class="keyword">break</span>;<span class="comment">//的加了一，之后再用front()方法使用它的时候会造成错误。</span></span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>: next=now*<span class="number">2</span>;<span class="keyword">break</span>;<span class="comment">//用结构体的话在这里加步数不会影响到队列里的元素，但用数组会，所以加步数在下面加</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!marked[next]&amp;&amp;next&gt;=<span class="number">0</span>&amp;&amp;next&lt;maxn)&#123;</span><br><span class="line">                marked[next]=<span class="number">1</span>;</span><br><span class="line">                <span class="built_in">step</span>[next]=<span class="built_in">step</span>[now]+<span class="number">1</span>;</span><br><span class="line">                q.push(next);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">(<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;&amp; q)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; empty;</span><br><span class="line">    swap(empty, q);   <span class="comment">//队列并没有.clear()方法，如果要用的话要自己定义</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;start&gt;&gt;terminal)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">clear</span>(q);</span><br><span class="line">        bfs();</span><br><span class="line">        <span class="built_in">memset</span>(marked, <span class="number">0</span>, <span class="keyword">sizeof</span>(marked));</span><br><span class="line">        <span class="built_in">memset</span>(<span class="built_in">step</span>, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="built_in">step</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -237,13 +245,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/03/%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/The-Accommodation-of-Students/" rel="prev" title="The Accommodation of Students(判断二分图+二分图最大匹配)">
-      <i class="fa fa-chevron-left"></i> The Accommodation of Students(判断二分图+二分图最大匹配)
+    <a href="/2020/04/04/%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98/Dungeon-Master%EF%BC%88%E7%AE%80%E5%8D%95bfs%EF%BC%89%5BPOJ2251%5D/" rel="prev" title="Dungeon Master（简单bfs）[POJ2251]">
+      <i class="fa fa-chevron-left"></i> Dungeon Master（简单bfs）[POJ2251]
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/04/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/Max-Sum-Plus-Plus%EF%BC%88%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%89/" rel="next" title="Max Sum Plus Plus（动态规划）">
-      Max Sum Plus Plus（动态规划） <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -304,7 +309,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Courses【HDU-1083】"><span class="nav-number">1.</span> <span class="nav-text">Courses【HDU 1083】</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Input"><span class="nav-number">2.</span> <span class="nav-text">Input:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output"><span class="nav-number">3.</span> <span class="nav-text">Output:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sample-Input"><span class="nav-number">4.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sample-Output"><span class="nav-number">5.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AC-codes"><span class="nav-number">6.</span> <span class="nav-text">AC codes:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -455,7 +460,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'sxysx.github.io',
       owner       : 'sxysx',
       admin       : ['sxysx'],
-      id          : '4a89f666b66b18b1b0ca404d03f47020',
+      id          : '2425c3ead03bb54ff4d70866809309e3',
         language: 'zh-CN || en || es-ES || fr || ru || zh-TW',
       distractionFreeMode: true
     });
