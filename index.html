@@ -154,6 +154,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/05/%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98/Fliptile%EF%BC%88%E4%BD%8D%E8%BF%90%E7%AE%97%E6%90%9C%E7%B4%A2%EF%BC%89[POJ3279]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.gif">
+      <meta itemprop="name" content="SXY">
+      <meta itemprop="description" content="帅某人每天都很自闭">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿帅今天又双叒叕自闭了">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/05/%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98/Fliptile%EF%BC%88%E4%BD%8D%E8%BF%90%E7%AE%97%E6%90%9C%E7%B4%A2%EF%BC%89%5BPOJ3279%5D/" class="post-title-link" itemprop="url">Fliptile（位运算搜索）[POJ3279]</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-05 13:19:52" itemprop="dateCreated datePublished" datetime="2020-04-05T13:19:52+08:00">2020-04-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index">
+                    <span itemprop="name">搜索</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="二进制位运算："><a href="#二进制位运算：" class="headerlink" title="二进制位运算："></a>二进制位运算：</h3><h4 id="1-反转："><a href="#1-反转：" class="headerlink" title="1. 反转："></a>1. 反转：</h4><p>和1进行异或(^)会反转，和0不会。即：0^1=1，1^1=0； 而：0^0=0，1^0=1</p>
+<h4 id="2-设置："><a href="#2-设置：" class="headerlink" title="2. 设置："></a>2. 设置：</h4><p>设置1：和1进行或(|)操作。 如：1|1=1,  0|1=1</p>
+<p>​              二进制数和0进行或(|)保持不变</p>
+<p>设置0：和0进行与(&amp;)操作。 如： 1&amp;0=0，0&amp;0=0</p>
+<p>​              二进制数和1与(&amp;)保持不变</p>
+<h4 id="Question"><a href="#Question" class="headerlink" title="Question:"></a><a href="https://vjudge.net/problem/POJ-3279" target="_blank" rel="noopener">Question</a>:</h4><blockquote>
+<p>  Farmer John knows that an intellectually satisfied cow is a happy cow who will give more milk. He has arranged a brainy activity for cows in which they manipulate an <em>M</em> × <em>N</em> grid (1 ≤ <em>M</em> ≤ 15; 1 ≤ <em>N</em> ≤ 15) of square tiles, each of which is colored black on one side and white on the other side.</p>
+<p>  As one would guess, when a single white tile is flipped, it changes to black; when a single black tile is flipped, it changes to white. The cows are rewarded when they flip the tiles so that each tile has the white side face up. However, the cows have rather large hooves and when they try to flip a certain tile, they also flip all the adjacent tiles (tiles that share a full edge with the flipped tile). Since the flips are tiring, the cows want to minimize the number of flips they have to make.</p>
+<p>  Help the cows determine the minimum number of flips required, and the locations to flip to achieve that minimum. If there are multiple ways to achieve the task with the minimum amount of flips, return the one with the least lexicographical ordering in the output when considered as a string. If the task is impossible, print one line with the word “IMPOSSIBLE”.</p>
+</blockquote>
+<h4 id="Input"><a href="#Input" class="headerlink" title="Input:"></a>Input:</h4><blockquote>
+<p>   Line 1: Two space-separated integers: <em>M</em> and <em>N</em><br>   Lines 2.. <em>M</em>+1: Line <em>i</em>+1 describes the colors (left to right) of row i of the grid with <em>N</em> space-separated integers which are 1 for black and 0 for white </p>
+</blockquote>
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output:"></a>Output:</h4><blockquote>
+<p>  Lines 1.. <em>M</em>: Each line contains <em>N</em> space-separated integers, each specifying how many times to flip that particular location. </p>
+</blockquote>
+<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h4><blockquote>
+<p>4 4<br>1 0 0 1<br>0 1 1 0<br>0 1 1 0<br>1 0 0 1</p>
+</blockquote>
+<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h4><blockquote>
+<p>0 0 0 0<br>1 0 0 1<br>1 0 0 1<br>0 0 0 0</p>
+</blockquote>
+<h4 id="AC-codes"><a href="#AC-codes" class="headerlink" title="AC codes:"></a>AC codes:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> max_len=<span class="number">15</span>;</span><br><span class="line"><span class="keyword">int</span> ori[max_len];  <span class="comment">//记录最开始的地板的颜色情况</span></span><br><span class="line"><span class="keyword">int</span> temp[max_len];  <span class="comment">//记录每一次枚举的地板的颜色情况</span></span><br><span class="line"><span class="keyword">int</span> result[max_len];  <span class="comment">//记录每一次枚举的奶牛对地板的操作</span></span><br><span class="line"><span class="keyword">int</span> best[max_len];   <span class="comment">//每一次枚举后视least和now的大小关系对best(储存最少操作的情况)进行更新</span></span><br><span class="line"><span class="keyword">int</span> least,now;  <span class="comment">//分别记录最小操作数和当前枚举方法的操作数</span></span><br><span class="line"><span class="keyword">int</span> maxn;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//快速幂</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans*=a;</span><br><span class="line">        a*=a;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SetBit</span><span class="params">(<span class="keyword">int</span> &amp;k, <span class="keyword">int</span> j, <span class="keyword">int</span> i)</span> <span class="comment">//将元素k的第j位设成i</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i) k |= (<span class="number">1</span>&lt;&lt;j);</span><br><span class="line">    <span class="keyword">else</span> k &amp;= ~(<span class="number">1</span>&lt;&lt;j);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetBit</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> i)</span> <span class="comment">//得到元素k的第i位的值</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (k&gt;&gt;i)&amp;<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FlipBit</span><span class="params">(<span class="keyword">int</span> &amp;k, <span class="keyword">int</span> i)</span> <span class="comment">//将元素k的第i位进行反转</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    k ^= (<span class="number">1</span>&lt;&lt;i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">enume</span><span class="params">()</span>  <span class="comment">//enumeration:枚举</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,t,switchs;   <span class="comment">//i,j是计数器</span></span><br><span class="line">    <span class="keyword">int</span> flag =<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;maxn; i++)  <span class="comment">//按照字典序进行搜素</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memcpy</span>(temp,ori,<span class="keyword">sizeof</span>(ori)); <span class="comment">//把ori复制给temp对temp进行操作，不改动ori</span></span><br><span class="line">        switchs=i;  <span class="comment">//当前对该行进行的操作，switch的各位中：1代表反转，0代表保持不变</span></span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            result[j]=switchs;  <span class="comment">//记录开关状态的比特值，也就是每一行各数位是否进行了反转，反转过则值为1，未反转过则值为0</span></span><br><span class="line">            <span class="keyword">for</span>(t=<span class="number">0</span>; t&lt;m; t++)  <span class="comment">//列举switchs存的每一位是1还是0；</span></span><br><span class="line">            &#123; </span><br><span class="line">                <span class="keyword">if</span>(GetBit(switchs, t))  <span class="comment">//如果得到switchs的该位是1， 则对该位进行反转</span></span><br><span class="line">                &#123;</span><br><span class="line">                    FlipBit(temp[j], t);</span><br><span class="line">                    <span class="keyword">if</span>(t&gt;<span class="number">0</span>) FlipBit(temp[j], t<span class="number">-1</span>);</span><br><span class="line">                    <span class="keyword">if</span>(t&lt;m<span class="number">-1</span>) FlipBit(temp[j], t+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(j&lt;n<span class="number">-1</span>) temp[j+<span class="number">1</span>]^=switchs; <span class="comment">//更新第j行进行的反转操作对第j+1行产生的影响，temp[j+1]与switchs对应位进行异或，与1异或会反转，与0异或保持不变，上一行某一位的操作只可能对它垂直下方的数位产生影响，另外第n-1行由于没有下一行了，因此不进入该if语句            </span></span><br><span class="line">            switchs=temp[j]; <span class="comment">//switchs记录下一行需要进行的操作的情况，下一行需要进行反转的数为恰好是上一行值为1的数位，所以上一行各个数位的值就是需要施加给下一行对应数位的操作，因此直接把temp[j]赋值给switchs。</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!temp[n<span class="number">-1</span>]) <span class="comment">//因为n-1行上面的所有行已经全部被操作为0，只需要判断第n-1行的值是否也为0，如果也是0，则说明操作成功，图中所有数位全部为0。</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> p=<span class="number">0</span>; p&lt;n; p++)  <span class="comment">//计算这种情况总共需要的操作数</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> q=<span class="number">0</span>; q&lt;m; q++)&#123;</span><br><span class="line">                    now+=GetBit(result[p],q);</span><br><span class="line">                &#125;</span><br><span class="line">            <span class="keyword">if</span>(now&lt;least)  <span class="comment">//比较当前情况操作数是否小于之前的最小操作数，如果是，则把本次操作过程的记录result[]复制给best[]。</span></span><br><span class="line">            &#123;</span><br><span class="line">                least=now;</span><br><span class="line">                <span class="built_in">memcpy</span>(best, result, <span class="keyword">sizeof</span>(best));</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            now=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(least==INF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"IMPOSSIBLE"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;m; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;GetBit(best[i], j);</span><br><span class="line">                <span class="keyword">if</span>(j&lt;m<span class="number">-1</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">' '</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> x;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;x;</span><br><span class="line">            SetBit(ori[i], j, x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cin</span>.<span class="built_in">get</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    maxn=<span class="built_in">pow</span>(<span class="number">2</span>,m);  <span class="comment">//所有可能的操作情况</span></span><br><span class="line">    least=INF;</span><br><span class="line">    enume();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98/Catch-That-Cow%EF%BC%88%E7%AE%80%E5%8D%95bfs%EF%BC%89[POJ3278]/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -857,89 +949,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/%E4%BD%BF%E7%94%A8Latex%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AETexLive-+-VsCode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.gif">
-      <meta itemprop="name" content="SXY">
-      <meta itemprop="description" content="帅某人每天都很自闭">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿帅今天又双叒叕自闭了">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/30/%E4%BD%BF%E7%94%A8Latex%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AETexLive-+-VsCode/" class="post-title-link" itemprop="url">使用Latex——配置TexLive + VsCode</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-30 13:55:35" itemprop="dateCreated datePublished" datetime="2020-03-30T13:55:35+08:00">2020-03-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-03 10:57:21" itemprop="dateModified" datetime="2020-04-03T10:57:21+08:00">2020-04-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sundry/" itemprop="url" rel="index">
-                    <span itemprop="name">sundry</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>点击“阅读全文”👇
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/30/%E4%BD%BF%E7%94%A8Latex%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AETexLive-+-VsCode/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1012,7 +1021,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
