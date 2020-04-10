@@ -1,25 +1,138 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>求和 | 阿帅今天又双叒叕自闭了</title><meta name="description" content="求和"><meta name="author" content="SXY"><meta name="copyright" content="SXY"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="../../../../../img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="求和"><meta name="twitter:description" content="求和"><meta name="twitter:image" content="http://yoursite.com/img/post.jpg"><meta property="og:type" content="article"><meta property="og:title" content="求和"><meta property="og:url" content="http://yoursite.com/2020/04/09/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/%E6%B1%82%E5%92%8C/"><meta property="og:site_name" content="阿帅今天又双叒叕自闭了"><meta property="og:description" content="求和"><meta property="og:image" content="http://yoursite.com/img/post.jpg"><script src="../../../../../https:/cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script><!-- hexo-inject:begin --><!-- hexo-inject:end -->var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-block content
-  article#post(class="")
-    #article-container!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      !=partial('includes/share/index', {}, {cache:theme.fragment_cache})
-        
-    if theme.reward.enable
-      !=partial('includes/post/reward', {}, {cache:theme.fragment_cache})
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .post-ad!=theme.ad.post
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
 
-    include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
-    if page.comments !== false
-      include includes/comments/index.pug
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="../../../../../css/index.css"><link rel="stylesheet" href="../../../../../https:/cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="../../../../../https:/cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2020/04/09/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/%E6%B1%82%E5%92%8C/"><link rel="next" title="I Hate It（线段树区间最大值）[HDU1754]" href="../../../../../http:/yoursite.com/2020/04/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/I-Hate-It%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC%EF%BC%89%5BHDU1754%5D/"><link rel="stylesheet" href="../../../../../https:/fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: false  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="../img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="../archives/"><div class="headline">文章</div><div class="length_num">19</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="../archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="../tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="../categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="../music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="../movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/img/post.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="../index.html">阿帅今天又双叒叕自闭了</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="../archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="../tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="../categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="../music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="../movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">求和</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-09 19:54:03"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-04-09</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-09 22:19:05"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-04-09</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="../../../../../categories/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/">前缀和与差分</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><p>点击“点击阅读”👇<a id="more"></a></p>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><p><img src="" class="lazyload" data-src="http://chuantu.xyz/t6/727/1586423098x2099719707.jpg"  alt=""></p>
+<p>要求的是：$\sum\limits_{i=1}^n(x_i+z_i)(ID_x+ID_z)$     （注：$x_i$是纸条编号为$ID_x$时候的值）</p>
+<p>我们将这个式子化简得到：$\sum\limits_{i=1}^n(x_iID_x+x_iID_z+z_iID_x+z_iID_z)$    <strong>（*)</strong></p>
+<p>再观察这个题目，发现可行的一对$(ID_x, ID_z)$ 必须满足的条件是：$ID_x$和$ID_z$的奇偶性必须相同，这样才能使得点y到点x和点z的距离相等，这个用数学方法很容易证明，如：</p>
+<p>（1）若$ID_y$为奇数：</p>
+<p>奇数-奇数=偶数，奇数+奇数=偶数； 奇数-偶数=奇数，奇数+奇数=奇数；</p>
+<p>（2）同理可证当$ID_y$为偶数的情况</p>
+<p>有了上面的结论，就可以把纸带上的点进行分类，首先根据点的奇偶性分出来两个集合，然后把每个集合内部的点根据是否是同一种颜色再分成一个个小集合（储存的是点的$ID$，即奇偶性和颜色都相同的点的集合，使用变长数组$vector$进行储存），储存时注意要按照$ID$的大小从小到大储存，因为x是要小于z的。</p>
+<p>当我们对小集合内部进行<strong>(*)</strong>式的累加时，对其使用数学手段进行优化：</p>
+<p>假设这个小集合内部有5个点，分别以$x,y,a,b,z$ 代替，</p>
+<p><img src="" class="lazyload" data-src="http://chuantu.xyz/t6/727/1586425311x2099719707.png"  style="zoom:67%;" /></p>
+<p>可以看到每个点都可以与其他的点相连，每个点可以连4条边，但是重复的边要去掉，那么对于这个式子:$\sum\limits_{i=1}^n(x_iID_x+x_iID_z+z_iID_x+z_iID_z)$    <strong>（*)</strong></p>
+<p>先要理解$(x_iID_x+x_iID_z+z_iID_x+z_iID_z)$表示的是点$x_i$和点$z_i$连成一条边时候的一个三元组的和。那么图中的这5个点可以连成的边有：$(x,y),(x,a),(x,b),(x,z),(y,a),(y,b),(y,z),(a,b),(a,z),(b,z)$   ，每个点都连有4条边，所以<strong>(*)</strong>式展开后系数为$x_i,y_i,a_i,b_i,z_i $的项各有8个，这样下面的式子化简就好理解了。</p>
+<p>只看系数为$x_i$的项，考虑到点x和其他所有点都连出一条边，则只包含系数$x_i$的项的总和为：$4xID_x+x(ID_y+ID_a+ID_b+ID_z) = 3xID_x+x(ID_x+ID_y+ID_a+ID_b+ID_z)=3xID_x+x\sum\limits_{i=x}^zID_i$</p>
+<p>同理可得只包含系数$y_i$的项的总和为：$3yID_y+y\sum\limits_{i=x}^zID_i$</p>
+<p>所以$\sum\limits_{i=1}^n(x_iID_x+x_iID_z+z_iID_x+z_iID_z)=\sum\limits_{m=x}^z3mID_m+\sum\limits_{m=x}^z(m\sum\limits_{n=x}^zID_n)$ </p>
+<p>推广到n个点，$(n-1)$ 条边，则有：$\sum\limits_{i=1}^n(x_iID_x+x_iID_z+z_iID_x+z_iID_z)=\sum\limits_{m=x}^z(n-2)mID_m+\sum\limits_{m=x}^z(m\sum\limits_{n=x}^zID_n)$ </p>
+<p>另外值得一提的是，由于$x$与$ID_x$的地位相同，上式还可以写成：</p>
+<p>$\sum\limits_{i=1}^n(x_iID_x+x_iID_z+z_iID_x+z_iID_z)=\sum\limits_{m=x}^z(n-2)mID_m+\sum\limits_{m=x}^z(ID_m\sum\limits_{n=x}^zn)$ </p>
+<p>此外，题目数据较大，结果要模10007，但为了以防数据范围溢出，我们可以在每一个计算的地方都模10007。</p>
+<p>附，模运算公式：</p>
+<ul>
+<li>(a + b) % p = (a%p + b%p) %p</li>
+<li>(a - b) % p = ((a%p - b%p) + p) %p</li>
+<li>(a <em> b) % p = (a%p)</em>(b%p) %p</li>
+</ul>
+<p>则有：$\sum\limits_{m=x}^z(n-2)mID_m+\sum\limits_{m=x}^zID_m\sum\limits_{n=x}^zn=\sum\limits_{m=x}^z(n-2)\%10007m\%10007ID_m\%10007+\sum\limits_{m=x}^z(ID_m\%10007\sum\limits_{n=x}^zn\%10007)$  </p>
+<p>根据上面的式子，就容易理解代码了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 测试用样例</span></span><br><span class="line"><span class="comment">6 2</span></span><br><span class="line"><span class="comment">5 5 3 2 2 2</span></span><br><span class="line"><span class="comment">2 2 1 1 2 1</span></span><br><span class="line"><span class="comment">output: 82</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">15 4</span></span><br><span class="line"><span class="comment">5 10 8 2 2 2 9 9 7 7 5 6 4 2 4</span></span><br><span class="line"><span class="comment">2 2 3 3 4 3 3 2 4 4 4 4 1 1 1</span></span><br><span class="line"><span class="comment">output: 1388</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 10007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100010</span>; <span class="comment">//最多有maxn种颜色</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="built_in">vector</span>&lt;ll&gt; odd[maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;ll&gt; even[maxn];</span><br><span class="line">ll val[maxn];  <span class="comment">//点所对应的值</span></span><br><span class="line">ll n, m; <span class="comment">//n个点，m种颜色</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld %lld"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) </span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;val[i]);</span><br><span class="line">    ll color;    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;color);</span><br><span class="line">        <span class="keyword">if</span>(i&amp;<span class="number">1</span>) odd[color].push_back(i);</span><br><span class="line">        <span class="keyword">else</span> even[color].push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//到此输入全部完成</span></span><br><span class="line">    ll total = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> t = <span class="number">1</span>; t &lt;= m; ++t) <span class="comment">//列举每种颜色</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//开始计算奇数且颜色为t的集合的三元组的总和</span></span><br><span class="line">        <span class="keyword">int</span> <span class="built_in">size</span> = odd[t].<span class="built_in">size</span>();        </span><br><span class="line">        ll val_sum = <span class="number">0</span>;        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; ++i) &#123;</span><br><span class="line">            val_sum += val[odd[t][i]]%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; ++i) &#123;</span><br><span class="line">            total += ((<span class="built_in">size</span><span class="number">-2</span>)%mod*odd[t][i]%mod*</span><br><span class="line">            val[odd[t][i]]%mod+odd[t][i]%mod*val_sum%mod)%mod; </span><br><span class="line">            total %= mod;           </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//开始计算偶数且颜色为t的集合的三元组的总和</span></span><br><span class="line">        <span class="built_in">size</span> = even[t].<span class="built_in">size</span>();        </span><br><span class="line">        val_sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; ++i) &#123;</span><br><span class="line">            val_sum += val[even[t][i]]%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; ++i) &#123;</span><br><span class="line">            total += ((<span class="built_in">size</span><span class="number">-2</span>)%mod*even[t][i]%mod*</span><br><span class="line">            val[even[t][i]]%mod+even[t][i]%mod*val_sum%mod)%mod;</span><br><span class="line">            total %= mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, total%mod);</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SXY</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="../../../../../http:/yoursite.com/2020/04/09/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/%E6%B1%82%E5%92%8C/">http://yoursite.com/2020/04/09/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/%E6%B1%82%E5%92%8C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">阿帅今天又双叒叕自闭了</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/post.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="../../../../../https:/cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="../../../../../https:/cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="../../../../../img/wechat.jpg" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="../../../../../img/alipay.jpg" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="../../../08/%E7%BA%BF%E6%AE%B5%E6%A0%91/I-Hate-It%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC%EF%BC%89%5BHDU1754%5D/"><img class="next_cover lazyload" data-src="/img/post.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">I Hate It（线段树区间最大值）[HDU1754]</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By SXY</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="../../../../../https:/cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="../../../../../js/utils.js"></script><script src="../../../../../js/main.js"></script><script src="../../../../../js/tw_cn.js"></script><script src="../../../../../https:/cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="../../../../../busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="../../../../../https:/cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="../../../../../https:/cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+   >MathJax = {
+        tex:{
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg:{
+                fontCache: 'global'
+            }
+        };
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end --></body></html>
